@@ -1,0 +1,20 @@
+service: layers
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  stage: ${opt:stage, 'dev'}
+
+layers:
+  auth:
+    path: auth
+    description: get Cognito ID token
+
+resources:
+  Outputs:
+    CognitoIDToken:
+      Value: !Ref AuthLambdaLayer
+      Export:
+        Name: AuthLambdaLayer

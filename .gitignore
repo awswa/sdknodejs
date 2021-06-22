@@ -1,0 +1,13 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+DynamoDB
+Github
+iam
+S3
+SSM
+Well-Architected
+Cognito/getAuth.js

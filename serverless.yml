@@ -1,0 +1,174 @@
+service: sdknodejs
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  lambdaHashingVersion: 20201221
+  apiGateway:
+    shouldStartNameWithService: true #https://www.serverless.com/framework/docs/deprecations/#AWS_API_GATEWAY_NAME_STARTING_WITH_SERVICE
+  stage: ${opt:stage, 'dev'}
+  deploymentBucket:
+    blockPublicAccess: true
+    serverSideEncryption: AES256
+  iam:
+    role:
+      statements:
+        - ${file(iam/s3.yaml):S3Access}
+        - ${file(iam/dynamodb.yaml):DynamoDBAccess}
+  #environment:
+  #  userTable: userTable-${self:provider.stage}
+    #NODE_PATH: "./:/opt/auth/nodejs/node_modules"
+
+
+# serverless-webpack plugin
+# https://www.serverless.com/plugins/serverless-webpack
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js' # This is a default config filename.
+    includeModules: false # Node modules configuration for packaging
+    packager: 'npm' # Packager that will be used to package your external modules
+    excludeFiles: S3/index.js
+  application:
+    name: AWSserverlessServices
+  userTable:
+    name: !Ref userTable
+    arn: !GetAtt  userTable.Arn
+
+package:
+    individually: true
+plugins:
+  - serverless-webpack
+    #serverless-iam-role-function
+
+layers:
+  auth:
+    path: getidtoken
+
+functions:
+  uploadToS3:
+    handler: S3/uploadToS3.handler
+    memorySize: 128
+    description: upload to S3
+    events:
+      - http:
+          path: s3
+          method: post
+          cors: true
+          #authorizer:
+          #  type: COGNITO_USER_POOLS
+          #  authorizerId:
+          #    Ref: ApiGatewayAuthorizer
+  getToken:
+    handler: Cognito/getToken.handler
+    layers:
+      - !Ref AuthLambdaLayer
+    environment:
+      PoolID: !Ref CognitoUserPool
+      AppID: !Ref CognitoUserPoolClient
+    events:
+      - http:
+          path: auth
+          method: post
+          cors: true
+          #authorizer:
+          #  type: COGNITO_USER_POOLS
+          #  authorizerId:
+          #    Ref: ApiGatewayAuthorizer
+
+resources:
+  Resources:
+    # Create DynamoDB
+    userTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: !Sub ${AWS::StackName}-users
+        AttributeDefinitions:
+          - AttributeName: username
+            AttributeType: S #string
+        KeySchema:
+          - AttributeName: username
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    # Create User Pool in Cognito
+    CognitoUserPool:
+      Type: 'AWS::Cognito::UserPool'
+      Properties:
+        UserPoolName: !Sub ${AWS::StackName}-user-pool
+        AutoVerifiedAttributes:
+          - email
+        UsernameAttributes:
+          - email
+        Schema:
+          - AttributeDataType: String
+            Name: email
+            Required: true
+        VerificationMessageTemplate:
+          DefaultEmailOption: CONFIRM_WITH_LINK
+    # Create User Pool Client in Cognito
+    CognitoUserPoolClient:
+      Type: AWS::Cognito::UserPoolClient
+      Properties:
+        # Generate an app client name based on the stage
+        ClientName: !Sub ${AWS::StackName}-user-pool-client
+        UserPoolId: !Ref CognitoUserPool
+        GenerateSecret: false
+        AllowedOAuthFlows:
+            - code
+            - implicit
+        AllowedOAuthFlowsUserPoolClient: true
+        AllowedOAuthScopes:
+          - email
+          - openid
+          - aws.cognito.signin.user.admin
+        CallbackURLs:
+          - 'https://example.com/callback'
+        DefaultRedirectURI: 'https://example.com/callback'
+        ExplicitAuthFlows:
+          - ALLOW_ADMIN_USER_PASSWORD_AUTH
+          - ALLOW_CUSTOM_AUTH
+          - ALLOW_USER_SRP_AUTH
+          - ALLOW_REFRESH_TOKEN_AUTH
+        LogoutURLs:
+          - 'https://example.com/signout'
+        SupportedIdentityProviders:
+          - COGNITO
+        PreventUserExistenceErrors: ENABLED
+    WACognitoUserPoUserPoolDomain:
+      Type: AWS::Cognito::UserPoolDomain
+      Properties:
+        UserPoolId: !Ref CognitoUserPool
+        Domain: !Join
+          - ''
+          - - walab-
+            - !Select [2, !Split ['/', !Ref AWS::StackId]]
+    # Add an authorizer
+    ApiGatewayAuthorizer:
+      Type: AWS::ApiGateway::Authorizer
+      Properties:
+        Name: !Sub ${AWS::StackName}-cognito_auth
+        RestApiId: !Ref ApiGatewayRestApi #RestApiId is the id of the API resource itself, which is returned by a Ref of the implied ApiGatewayRestApi resource that Serverless creates under the hood.
+        IdentitySource: method.request.header.Authorization
+        Type: COGNITO_USER_POOLS
+        ProviderARNs:
+        - Fn::GetAtt: [CognitoUserPool, Arn]
+
+  Outputs:
+    CognitoUserPoolID:
+      Value: !Ref CognitoUserPool
+      Description: User Pool ID
+    CognitoAppClientID:
+      Value: !Ref CognitoUserPoolClient
+      Description: App Client ID
+    CognitoSignupURL:
+      Description: Firstly, please do sign up for API Authorization
+      Value: !Join
+        - ''
+        - - https://
+          - walab-
+          - !Select [2, !Split ['/', !Ref AWS::StackId]]
+          - !Sub '.auth.${AWS::Region}.amazoncognito.com/login?client_id='
+          - !Ref CognitoUserPoolClient
+          - '&response_type=code&scope=aws.cognito.signin.user.admin+email+openid&redirect_uri=https://example.com/callback'

@@ -1,0 +1,325 @@
+{
+	"_comment": {
+		"_version": "0.0.1",
+		"_date": "2021-06-09",
+		"_contributor": ["bobyeh@ - github:juntinyeh", "hclo@"],
+		"_update_note": [
+			"0.0.1 - Change the text fields from \\n to string list/array.",
+			"0.0.0 - Translate from .en.json, OPS pillar accomplished."
+		]
+	},
+	"OPS 1": {
+		"Objective": [
+			"고객이 이 워크로드를 통해 이루고자 하는 비즈니스 목표를 명확하게 이해",
+			"이 워크로드가 비즈니스 성과 달성에 어느정도 영향을 미치는지 파악",
+			"내부적 그리고 외부적인 비즈니스 규정준수 및 요구사항을 확인",
+			"비즈니스 의사결정시 어느 부분에 우선순위를 두는지 이해",
+			"우선순위 혹 의사결정에 대한 권한이 있는지 확인"
+		],
+		"Sample Question": [
+			"의사결정은 내부적으로 어떻게 결정되나요? ",
+			"여러 비즈니스 요구사항이 있을 경우, 어떤 우선순위를 통해 결정하나요? ",
+			"이 워크로드가 외부 고객에게 제공하려는 기능 혹은 가치는 무엇입니까?",
+
+			"회사/팀은 이 워크로드의 장단점이나 위험요소를 어떻게 판단합니까?"
+		],
+		"Audience Context": [
+			"비즈니스 개발 및 전략", "비즈니스 프로세스 관리", "C*O"
+		]
+	},
+	"OPS 2": {
+		"Objective": [
+			"비즈니스의 구조 화 팀 구성도를 이해",
+			"워크로드 및 도메인의 담당자를 파악",
+			"프로세스 및 절차가 잘 정의되었는지 이해"
+		],
+		"Sample Question": [
+			"이 워크로드에 관련해서 부서/팀/역할은 어떻게 구성이 되었습니까? ",
+			"워크로드의 담당자들은 어떻게 구성되어 있습니까？",
+			"업무분담이나 책임은 어떤 경로를 통해 이뤄지나요?",
+			"팀간의 커뮤니케이션이나 협력이 필요할 시 정의된 절차에 따라 업무가 절절하게 할당되는지요?"
+		],
+		"Audience Context": [
+			"비즈니스 프로세스 관리", "유지 보수 팀 관리"
+		]
+	},
+	"OPS 3": {
+		"Objective": [
+			"고객의 조직 문화를 이해하고 어떻게 비즈니스 성과를 지원하는지 이해",
+			"위험 요소를 사전에 식별하고 방지할 수 있도록 에스칼레이션이 절절히 수행되는지 파악"
+		],
+		"Sample Question": [
+			"새로운 오퍼레이션을 툴을 도입한 적이 있습니까?",
+			"새로운 기능/툴 도입시 적합한지 여부를 어떻게 결정합니까?",
+			"부적합한 도구나 서비스 기능 또는 비즈니스 가치에 도움이 되지 않는 경우, 어떤 조치를 취하고 해경합니까?？"
+		],
+		" Audience Context ": ["비즈니스 프로세스 관리", "유지 보수 팀 관리"]
+	},
+	"OPS 4": {
+		"Objective": ["워크로드 상태에 대한 가시성과 추적 관리가 활성화가 되었는지 이해 ", "  (애플리케이션, 워크로드, 사용자 활동 관련 정보, 종속된 리소스 정보) ", "이 정보들이 고객의 비즈니스 목표와 연관성을 이해. "],
+		" Audience Context ": ["유지 보수 팀 관리"]
+	},
+	"OPS 5": {
+		"Objective": ["워크로드의 변경시 관리 및 대응에 대한 이해",
+			"결함을 줄이고 수정 작업을 쉽게 수행하고 프로덕션으로 이러지는 흐름을 개선하는지 이해",
+			"빌드, 배포, 테스트 자동화를 통해 배포 작업을 줄이고 있는지 이해(TTM-Time To Market)"
+		],
+		"Question": ["OPS 1", "OPS 2"],
+		" Audience Context ": ["유지 보수 팀 관리"]
+	},
+	"OPS 6": {
+		"Objective": ["고객의 배포 프로세스 및 관련 세부 정보를 이해 ",
+			"다양한 단계의 작업 환경에서 배포 테스트",
+			"배포 실패 시 리스크를 줄이는 접근에 대한 이해"
+		],
+		" Audience Context ": ["유지 보수 팀 관리"]
+	},
+	"OPS 7": {
+		" Objective ": ["적절한 수의 숙련된 인력이 있는지 확인하는 메커니즘을 확보 ",
+			"유지보수 관련 기술/툴/런북/플레이북을 통해 일관된 방식의 운영 준비 검토",
+			" 프로덕션 전환시 정보에 입각하여 이점과 위험을 파악 후 배포를 결정"
+		],
+		" Audience Context ": ["유지 보수 팀 관리"]
+	},
+	"OPS 8": {
+		" Objective ": [
+			" 워크로드에 대한 KPI (핵심관련지표) 설정이 있는지 파악 ",
+			" 워크로드에서 모니터링 된 지표들과KPI의 관계를 이해",
+			" 지표의 기준, 추세 분석, 변칙성을 식별하기 위한 데이터가 수집되는지 파악",
+			"비즈니스 결정시 워크로드 관련 지표에 대한 참고를 하는지 이해"
+		],
+		" Sample Question ": [
+			"유지보수 팀이 워크로드의 상태를 관찰하는 지표를 가지고 있습니까？",
+			"비즈니스 팀이 추세분석이나 예측을 할 수 있는 데이터가 있습니까？"
+		],
+		" Question ": ["OPS9", "REL6"],
+		" Audience Context ": ["비즈니스 개발 및 전략", "유지 보수 팀 관리"]
+	},
+	"OPS 9": {
+		"Objective": [
+			"운영 업무에 대하여 KPI(핵심관련지표) 설정이 있는지 파악하고 비즈니스 성과와 고객의 성과와의 상관관계를 이해 (예: 새 기능 추가 후, 새로운 고객의 서비스 사례 수 ", " 지표의 기준, 추세 분석, 변칙성을 식별하기 위한 데이터가 수집되는지 파악", "비즈니스 결정시 운영 업무 관련 지표에 대한 참고를 하는지 이해"
+		],
+		" Sample Question ": [
+			"현재 프로덕션의 모니터링 항목엔 어떠한 것들이 있나요？ ",
+			"운영 업무의KPI는 무엇인가요? ",
+			"그 중 비즈니스 수치와 관련된 것은 무엇입니까？ "
+		],
+		" Question ": ["OPS 8", "REL6"],
+		" Audience Context ": ["비즈니스 프로세스 관리", "유지 보수 팀 관리"]
+	},
+	"OPS 10": {
+		"Objective": ["이벤트/장애에 대한 대응을 위한 준비/대응을 이해 "],
+		" Sample Question ": [
+			"과거에 유지 보수 사고를 경험한 적이 있었나요? ",
+			"유지 보수 사고에 대한 표준 운영 절차는 무엇입니까？",
+			"On call과 같은 위기대응 메커니즘이 있습니까?",
+
+			"이벤트나 장애발생 시 자동화 스크립크가 있습니까？"
+		],
+		" Question ": ["OPS 7"],
+		" Audience Context ": ["유지 보수 팀 관리"]
+	},
+	"OPS 11": {
+		" Objective ": ["유지 보수 팀에서 사용하는 관리 메커니즘이 비즈니스 상태를 지속적으로 개선할 수 있는지 확인"],
+		" Sample Question ": ["비즈니스 목표 달성을 도울 수 있는 개선 메커니즘이 있습니까？"],
+		" Audience Context ": ["비즈니스 개발 및 전략", "비즈니스 프로세스 관리", "유지 보수 팀 관리", "專案經理", "維運團隊經理", "維運技術人員"]
+	},
+	"SEC 1": {
+		"目標": ["瞭解目前客戶對於安全性的實際演練以及實施的狀態",
+			"並依照運維卓越支柱的定義，確認是否有參照改善並且延伸到安全性操作",
+			"確認客戶如何確保所有安全性操作為最新而且符合業界要求及法規認証",
+			"了解客戶如何認知及面對安全性的威脅",
+			"確認客戶如何將安全性相關操作利用自動化流程改善、測試及驗証"
+		],
+		"範例問題": ["請問目前研發及維運團隊是如何操作AWS的帳號？混合雲或地端機房？",
+			"請問目前這些重要的環境帳號，是如何保護？單純的帳號密碼或是有多因子MFA認証？",
+			"請問目前技術團隊如何能確認所有的環境安全性是否有資安漏洞？",
+			"請問有專門的管道或專職人員在關注資安相關的訊息，例如CVE？",
+			"請問過去固定多久會做一次環境的安全性檢視？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 2": {
+		"目標": ["了解目前客戶對於人員身份的管理，不論是公司組織內部或是外部",
+			"了解目前客戶在軟體應用執行時所需要的身份管理"
+		],
+		"範例問題": ["目前在研發團隊，有需要操作AWS環境的同仁有多少？",
+			"請問研發同仁的AWS帳號是怎麼做管理？分別派發還是共用帳號密碼？",
+			"在帳號管理上是否有使用多因子認証MFA?",
+			"帳號的權限設定上是否有分別？每一個同仁都直接派發Administrator的權限？",
+			"在AWS的環境中EC2的虛擬實例中的帳號怎麼管理？.PEM檔怎麼管理？",
+			"在RDS中的帳號密碼是怎麼管理？應用程式怎麼做資料庫的連接？",
+			"如果程式中需要對S3做presigned URL，是怎麼呼叫API? 將API_Key/Secret_Key存在哪？",
+			"Lambda的操作上是如何設定IAM Role? Role的權限有多大？",
+			"請問上一次rotate這些static credential是什麼時候？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 3": {
+		"範例問題": ["請問研發或維運團隊在不同的環境中有不同的權限嗎？",
+			"請問在測試環境是每一個同仁都有開啟所有AWS服務資源的權限？",
+			"有設定資源上限或是所在區域嗎？",
+			"維運團隊在正式環境(Prod)每個人的權限設定是如何區分？",
+			"如果在維運過程中需要研發成員緊急操作或修改正式環境的設定，怎麼將權限或帳號開給相關人員？",
+			"在專案結束或是人員離職之後，有沒有相對應的流程去控管這些已經開設好的AWS帳號及其他系統帳號？",
+			"在不同的AWS帳號之間的資源分享，或Assume IAM Role目前是如何紀錄及追蹤？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 4": {
+		"範例問題": ["請問目前是否有在基礎建設(Infra)層收集相關的日誌紀錄(Log)",
+			"請問在應用(AP)層是否也有收集相關的日誌紀錄 - 例如不正常訪問？",
+			"目前的Linux Server的Port 22是全開，請問有定期去看secure.log嗎？",
+			"目前這些日誌紀錄是分別放在預設的位置還是有集中存放？",
+			"對於這些安全性的日誌紀錄有做分析或是告警(Alert)嗎？",
+			"對於持續來同一個IP網段的異常存取，是人工處理還是會自動化阻擋？",
+			"如果已經知道有改善的方法，目前是怎麼處理？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 5": {
+		"範例問題": ["目前帳號裡面的VPC是怎麼設置？",
+			"不同帳號之前的VPC Peering的策略是什麼？",
+			"在Public Subnet/Private Subnet中間的設定跟區分目前是怎麼做的？",
+			"目前是怎麼連接存取到VPC內部的EC2？",
+			"如何經由連接跳板機(Bastion)來存取正式環境的RDS？",
+			"跳板機是經由公網配合Security Group來限制存取，但來源IP網段有多少人共用？",
+			"目前是怎麼利用VPC flow log來確認所有的操作安全？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 6": {
+		"範例問題": ["請問在應用(AP)層有用到任何外部的函式庫(lib)嗎？",
+			"在什麼情況下會知目前用到的函式庫可能有安全性問題？",
+			"請問外包廠商提供的是執行檔(binary)還是原始碼(source code)？",
+			"目前怎麼確定應用層沒有任何安全性漏洞？",
+			"目前在ECS用的base image是從外部來的，有作過任何驗証或掃描嗎？",
+			"目前這些Windows Server是怎麼做security patch？",
+			"Ops團隊使用Ansible來批次操作Linux Server，那中間怎麼確定所有操作的安全性？",
+			"線上支付的相關功能有經過弱點掃描嗎？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 7": {
+		"範例問題": ["目前是所有的資料都放在同一個資料庫，還是有分開保存",
+			"目前病患相關的PII是怎麼保存？",
+			"使用者身份識別資料目前是怎麼保存跟保護？明文存放在資料庫？",
+			"會員使用者相關的圖片、文字、資料，目前是怎麼存放？",
+			"如果有些高敏感度的資料，保存的週期跟時限目前是怎麼設定？"
+		],
+		"目標人員": ["技術研發團隊", "維運團隊"]
+	},
+	"SEC 8": {
+		"目標": ["Gain understanding on how they are securing their data that is stored in their mid / long term storage. This could be in S3 or their Database instance. ", "How are they implement multiple controls to reduce risk of un-authorized access and mishandling."]
+	},
+	"SEC 9": {
+		"目標": ["Gain understanding on how they are securing their data during transit. This could be in data that is transfered across network, or through communication services such as Gateway / Messaging. ", "How do they implement multiple controls to reduce risk of un-authorized access and mishandling."]
+	},
+	"SEC 10": {
+		"目標": ["Gain understanding on what are the things they implement in Preparation to security incidents. ", "How can they in a timely manner, runs an effective investigation, response to to the event/incident , and recovery from it to minimize disruption to your organization."]
+	},
+	"REL 1": {
+		"目標": ["Gain understanding around their awareness about the concept of Service Quote, and why that concept exist to protect them from accidental provisioning. ", "Gain understanding also on how they are now managing their workload to address this."]
+	},
+	"REL 2": {
+		"目標": ["Gain understanging on their approach on planning and implementing their network topology from. ", "What are the things, they consider when are they planning their network topology which includes, intra- and inter-system connectivity, public IP address management, private IP address management, domain name resolution."]
+	},
+	"REL 3": {
+		"目標": ["Gain understanding on their approch in implementing a Service-oritented Architecture ? ", "On how they are segmenting their workload, and if each of the serment focuses on a certain functionality or business domain. ", "Is the workload currently runs as a single or multiple monoliths ? or are they running the application as a Mircoservice model."]
+	},
+	"REL 4": {
+		"目標": ["Gain understanding on their approach to design interactions between parts of their distributed system, or other system that interacts / relies on this workload. ", "When disruption / failure occur to the system your workload interacting with or vice versa , what are the impacts to your workload and that other connecting system ? ", "And how are they handling it ?"]
+	},
+	"REL 5": {
+		"目標": ["Gain understanding on what are the things / approach they have implemented when designing interactions in a distributed system to manage failures, or allow the system to widhstand it."]
+	},
+	"REL 6": {
+		"目標": ["Gain understanding on how are they monitoring their workload resources ? ", "What are the things in their workload that they are monitoring, and how are they treating those data to allow better reliability in the workload"],
+		"關聯問題": ["OPS 8", "OPS 9", "REL 6"]
+	},
+	"REL 7": {
+		"目標": ["Gain understanding on the approach of their design for their workload to allow the workload to adapt to change in demand. ", "Find out, on how they are implementing this ability to adapt ? gather high level technical details around their approach"],
+		"關聯問題": "COST 9"
+	},
+	"REL 8": {
+		"目標": ["Gain understanding on their process to implement change in the workload, at application and infrastructure level. ", "What are the things that they do to be able reliably implement changes like patch / software / config change to ensure that it is done in a controlled manner ? ", "If changes are not done in a controlled manner, it can become difficult for them to predict effect of these changes, and to decide the appropriate follow up question."]
+	},
+	"REL 9": {
+		"目標": ["Gain understanding on how they are backing up their data. ", "Have they defined and have business agreed on the RTO / RPO ? ", "If there is no direction from the business, do they know what is their RTO / RPO at their current strategy they implemented ? "],
+		"關聯問題": "REL 13"
+	},
+	"REL 10": {
+		"目標": ["Gain understanding on their approach / strategies in isolating the impact when failure occured in the workload so that the effect to other services are managed / reduced ", "This is particularly prominent if their workload is distributed accross multiple components. ", "If the workload is a monolith, look at surrounding services that interconnects with the workload, e.g: billing system, crm, etc. What strategy are they implementing to reduce the impact on other services that relies on the service."]
+	},
+	"REL 11": {
+		"目標": ["Gain understanding on what is their strategy / approach to lower the Mean time to Recovery should an issue occur in the system. ", "What is their current mean time to recovery ? ", "What are the approach / process / implementation they have to handle this reduction of Mean time to Recovery ( The Average time it takes from the time issue is reported until it get's resolved)"]
+	},
+	"REL 12": {
+		"目標": " Gain understanding on how they are testing all of the strategies they have to improve reliability on the workload "
+	},
+	"REL 13": {
+		"目標": ["Gain understanding on their plan for Disaster recovery ", "Have they got this plan documented and tested ? ", "Have they defined the RTO / RPO?"],
+		"關聯問題": "REL 9"
+	},
+	"PERF 1": {
+		"目標": [" Gain understanding / insight on what are their approach in making sure that they have the most optimal architecture model for their workload."]
+	},
+	"PERF 2": {
+		"目標": " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right compute solution for their workload."
+	},
+	"PERF 3": {
+		"目標": " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right storage solution for their workload."
+	},
+	"PERF 4": {
+		"目標": " Gain understanding on what are the strategy / approach they took to make sure they are selecting the right database solution for their workload."
+	},
+	"PERF 5": {
+		"目標": " Gain understanding on what are the strategy / approach they took to make sure they have the most optimal network configuration based on their needs and constrains."
+	},
+	"PERF 6": {
+		"目標": ["Gain understanding on their approach to keep up to day with new resources and services. ", "Do they have a process to defined to improve the workload performance ? ", "What mechanism do employ to ensure their workload continuously evolves towards improvement?"]
+	},
+	"PERF 7": {
+		"目標": ["Gain understanding on their approach to record the performance metrics of all the resources they monitor, establish benchmark, and set up appropriate alerting to take action upon indication of performance degardation"]
+	},
+	"PERF 8": {
+		"目標": ["Gain insight on customer's understanding around areas in the workload that they consider critical from performance perspective. ", "Determine which aspect they can trade off to achieve that, and what will be the impact to their customer , and efficiency they are achieving. ", "How are they tracking /measuring these impact. ", "And what strategy do they use to mitigate those tradeoffs?"]
+	},
+	"COST 1": {
+		"目標": ["Gain understanding around what practice does the customer have in terms of managing thier cloud expenditures. ", "Have they established a dedicated function to handle the management ? ", "What is their general strategy, and what are the things that they implement to handle their Cloud Financial Management."]
+	},
+	"COST 2": {
+		"目標": ["Gain insights on what are the things they implemenet in their workload to govern usage of the workload. ", "What are the strategies and things implemented to ensure the cost are appropriately incurred while making sure the 目標s are stillachieved."],
+		"關聯問題": "SEC 3"
+	},
+	"COST 3": {
+		"目標": " Gain insights on what are the things implemented to monitor the usage of the resources used and what mechanism do they use to create attrobution of the cost for that particular category",
+		"關聯問題": "OPS 8, REL 1, REL 6"
+	},
+	"COST 4": {
+		"目標": " What are their approach when decomissioning resources to ensure that they are reducing waste.",
+		"關聯問題": "REL 6"
+	},
+	"COST 5": {
+		"目標": ["Gain insights, on their approach and strategies to evaluate cost when they select their services as their building block for the workload."]
+	},
+	"COST 6": {
+		"目標": " Gain insight on their effort when choosing resource size and the quantity to ensure it can accomodate the task at hand while minimizing wastage.",
+		"關聯問題": "PERF 2, PERF 3, PERF 4"
+	},
+	"COST 7": {
+		"目標": ["Gain insights on their understanding about AWS cloud cost model, and if they are utilizing the right pricing model for the workload. ", "Have they levaraged, Reserved Instance Pricing ?, Saving Plans ?"],
+		"關聯問題": "OPS 1, OPS 4"
+	},
+	"COST 8": {
+		"目標": ["Gain insights on their understanding of data transfer charges in their workload, and what stratefy have they implemented to manage / prepare for this?"],
+		"關聯問題": "REL 2, PERF 5"
+	},
+	"COST 9": {
+		"目標": " Gain understanding on what is their approach to be able to manage the demand and supply of resources. While making sure wastage is kept minimum.",
+		"關聯問題": "REL 6"
+	},
+	"COST 10": {
+		"目標": ["Gain understanding on their process / approach in keeping up with AWS new services, features that would improve their workload cost optimization."]
+	}
+}
